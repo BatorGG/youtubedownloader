@@ -1,0 +1,89 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Download and convert YouTube Videos.</title>
+  	<meta name="description" content="Download and convert YouTube videos.">
+  	<meta name="keywords" content="youtube, downloader, converter, download, convert, mp3, mp4, music, video, youtube downloader, youtube video downloader, youtube mp3 converter, youtube mp3 downloader, youtube mp4 downloader, youtube mp3 converter, youtube mp4 converter, mp3 converter, mp4 converter, mp3 downloader, mp4 downloader, how to download youtube videos, download youtube videos, how to download music from youtube, download mp3 from youtube">
+  	<meta name="author" content="Pump House">
+
+    <link rel='dns-prefetch' href='https://www.google.com' />
+    <link rel='dns-prefetch' href='https://www.google-analytics.com' />
+    <link rel='prefetch' href='https://www.google.com/jsapi' />
+    <link rel='prefetch' href='https://www.google-analytics.com/analytics.js' />
+
+    <link rel="stylesheet" media="all" href="assets/css/layout.css" />
+    <link rel="stylesheet" media="screen" href="assets/css/animate-custom2.css" />
+    <link rel="stylesheet" media="all" href="assets/jquery.confirm/jquery.confirm.css" />
+
+    <script async src="https://www.google.com/jsapi"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("webfont", "1");
+        google.setOnLoadCallback(function() {
+            WebFont.load({
+              google: { families: ['Sonsie+One'] }
+            });
+        });
+        google.load("jquery", "1.7");
+    </script>
+
+    <script>
+    function downloadmp3() {
+      $.ajax({
+           type: "POST",
+           url: 'https://github.com/BatorGG/youtubedownloader/blob/master/assets/php/downloadmp3.php',
+           data:{action:'call_this'},
+           success:function(html) {
+             alert(html);
+           }
+
+      	});
+ 	}
+    </script>
+
+    <script>
+    function downloadmp4() {
+      $.ajax({
+           type: "POST",
+           url: 'https://github.com/BatorGG/youtubedownloader/blob/master/assets/php/downloadmp4.php',
+           data:{action:'call_this'},
+           success:function(html) {
+             alert(html);
+           }
+
+      	});
+ 	}
+    </script>
+</head>
+<body>
+    <div id="container">
+        <!-- Title + description -->
+        <h1><a href="#" onclick="javascript: do_reset(); void(0);">YouTube Downloader</a></h1>
+        <p><cite>Download and convert YouTube videos.</cite></p>
+
+        <!-- Download form -->
+        <div id="download" class="animated">
+            <input type="text" name="yturl" id="ytUrl" value="" placeholder="Insert a YouTube URL and click the download button." required />
+            <input class="blue mp3" type="submit" id="s" value="MP3" onclick="downloadmp3()" />
+            <input class="red mp4" type="submit" id="s" value="MP4" onclick="downloadmp4()"/>
+        </div>
+
+        <!-- Results -->
+        <div id="ret" class="animated flipOutX">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="float:left; text-align: left;">Sponsored by: <a href="http://pumphouse.ml">Pump House</a>.</p>
+        <p style="float:right; text-align: right; color: #777;">You may not infer any affiliation with YouTube<sup>&#8482;</sup>, which clearly doesn't exist! YouTube<sup>&#8482;</sup> and the logo are trademarks of Google Inc..</p>
+    </footer>
+
+    <!-- App scripts -->
+    <script src="assets/jquery.confirm/jquery.confirm.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+</body>
+</html>
